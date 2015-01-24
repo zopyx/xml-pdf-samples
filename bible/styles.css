@@ -27,7 +27,7 @@ CHAPTER {
 }
 
 CHAPTER:before {
-    content: attr(cnumber);
+    content: 'Chapter ' attr(cnumber);
     font-size: 1.4em;
     font-weight: bold;
 }
