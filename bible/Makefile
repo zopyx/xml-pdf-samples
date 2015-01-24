@@ -1,7 +1,7 @@
 all: pdfreactor prince
 
 pdfreactor:
-	pdfreactor -s styles.css index.xml pdfreactor.pdf
+	time pdfreactor -s styles.css index.xml pdfreactor.pdf
 
 prince:
-	prince -s styles.css index.xml prince.pdf
+	time prince -s styles.css index.xml prince.pdf
