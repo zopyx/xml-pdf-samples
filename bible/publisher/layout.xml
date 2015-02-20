@@ -2,22 +2,33 @@
 <Layout xmlns:sd="urn:speedata:2009/publisher/functions/en" xmlns="urn:speedata.de:2009/publisher/en">
   <Options show-grid="yes"/>
 
-  <Stylesheet filename="style.css" />
-
-
   <LoadFontfile name="DejaVu" filename="DejaVuSans.ttf" />
   <LoadFontfile name="DejaVu Bold" filename="DejaVuSans-Bold.ttf" />
   <LoadFontfile name="DejaVu Italic" filename="DejaVuSans-Oblique.ttf" />
   <LoadFontfile name="DejaVu BoldItalic" filename="DejaVuSans-BoldOblique.ttf" />
 
-  <DefineFontfamily name="regular" fontsize="12" leading="14">
+  <DefineFontfamily name="regular" fontsize="10" leading="10">
     <Regular fontface="DejaVu"/>
     <Bold fontface="DejaVu Bold"/>
     <Italic fontface="DejaVu Italic"/>
     <BoldItalic fontface="DejaVu BoldItalic"/>
   </DefineFontfamily>
 
-  <DefineFontfamily name="book" fontsize="24" leading="14">
+  <DefineFontfamily name="versenumber" fontsize="14" leading="10">
+    <Regular fontface="DejaVu"/>
+    <Bold fontface="DejaVu Bold"/>
+    <Italic fontface="DejaVu Italic"/>
+    <BoldItalic fontface="DejaVu BoldItalic"/>
+  </DefineFontfamily>
+
+  <DefineFontfamily name="chapter" fontsize="14" leading="14">
+    <Regular fontface="DejaVu"/>
+    <Bold fontface="DejaVu Bold"/>
+    <Italic fontface="DejaVu Italic"/>
+    <BoldItalic fontface="DejaVu BoldItalic"/>
+  </DefineFontfamily>
+
+  <DefineFontfamily name="book" fontsize="24" leading="24">
     <Regular fontface="DejaVu"/>
     <Bold fontface="DejaVu Bold"/>
     <Italic fontface="DejaVu Italic"/>
@@ -40,8 +51,8 @@
 
   <Record element="BIBLEBOOK">
     <PlaceObject>
-      <Textblock>
-        <Paragraph class="book">
+      <Textblock fontface="book">
+        <Paragraph>
           <Value  select="@bname"/>
         </Paragraph>
       </Textblock>
@@ -51,8 +62,8 @@
 
   <Record element="CHAPTER">
     <PlaceObject>
-      <Textblock class="chapter">
-        <Paragraph font-face="heading" >
+      <Textblock fontface="chapter">
+        <Paragraph font-face="chapter" >
           <Value select="@cnumber"/>
         </Paragraph>
       </Textblock>
@@ -62,8 +73,8 @@
 
   <Record element="VERS">
     <PlaceObject>
-      <Textblock class="verse">
-        <Paragraph class="verse"><Value select="@vnumber"/>. <Value select="string(.)"/></Paragraph>
+      <Textblock fontface="regular">
+        <Paragraph><Value fontface="versenumber" select="@vnumber"/><Value>. </Value><Value select="string(.)"/></Paragraph>
       </Textblock>
     </PlaceObject>
   </Record>
